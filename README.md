@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Porrodoro - A Fun Cannabis-Themed Pomodoro Timer 🌿🔥🍕
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Porrodoro**, my very first GitHub repository! 🎉  
+Created by **ahautalam**, I am thrilled to share this fun and unique project with you. Porrodoro is a cannabis-themed Pomodoro timer designed to help you stay productive while adding a playful twist to your time management routine.
 
-## Available Scripts
+## What is Porrodoro? 🤔
 
-In the project directory, you can run:
+Porrodoro is a timer inspired by the classic Pomodoro technique, but with a cannabis-themed spin. It helps you break your work into focused intervals while incorporating fun and lighthearted breaks. Whether you're cultivating your creativity, taking a smoke break, or indulging in some munchies, Porrodoro has got you covered!
 
-### `npm start`
+### Features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Three Modes**:
+  - **Work (TIEMPO DE CULTIVO)**: Stay focused and productive.
+  - **Smoke (TIEMPO DE PORRO)**: Take a short, relaxing break.
+  - **Munchies (TIEMPO DE MONCHA)**: Enjoy a longer break to recharge.
+- **Neo-Brutalist Design**: A bold and colorful aesthetic to keep things visually exciting.
+- **Custom Lottie Animations**: Dynamic animations for each mode to enhance the experience.
+- **Sound Effects**: Choose from a variety of fun alarm sounds to signal the end of each session.
+- **Customizable Settings**: Adjust work, smoke, and munchies durations, as well as the number of cycles before a munchies break.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Why Porrodoro? 🌟
 
-### `npm test`
+This project was created to bring a smile to your face while helping you manage your time effectively. It's a fun and quirky way to stay productive, and I hope it adds a bit of joy to your daily routine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How It's Made 🛠️
 
-### `npm run build`
+Porrodoro is built using:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React.js**: For a dynamic and interactive user interface.
+- **Lottie Animations**: To bring each mode to life with custom animations.
+- **Neo-Brutalist Design**: A bold and playful design style.
+- **CSS**: For styling and responsiveness.
+- **JavaScript**: To handle timer logic and interactivity.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+With your help (yes, you, the amazing AI assistant!), I was able to bring this idea to life. Thank you for being part of this journey!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use Porrodoro 🚀
 
-### `npm run eject`
+1. Clone the repository to your local machine.
+2. Install dependencies using `npm install`.
+3. Run the app locally with `npm start`.
+4. Customize your timer settings and enjoy the experience!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## A Note from Ahautalam 💬
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is my **first GitHub repository**, and I couldn't be more excited to share it with the world. Porrodoro is a labor of love, and I hope it brings as much joy to you as it did to me while creating it. If you have any feedback, suggestions, or just want to say hi, feel free to reach out!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Thank you for checking out Porrodoro. Let's stay productive and have some fun along the way! 🌿🔥🍕
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### License 📜
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project is open-source and available under the [MIT License](LICENSE).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
