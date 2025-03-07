@@ -1,4 +1,6 @@
-App() {
+import React from 'react';
+
+function App() {
   const [minutes, setMinutes] = React.useState(25);
   const [seconds, setSeconds] = React.useState(0);
   const [isActive, setIsActive] = React.useState(false);
@@ -17,11 +19,11 @@ App() {
     },
     cough2: {
       name: "Tos Suave",
-      url: "assets/cough1.mp3"
+      url: "assets/cough3.mp3"
     },
     cough3: {
       name: "Tos con Risa",
-      url: "assets/cough1.mp3"
+      url: "assets/cough2.mp3"
     },
     original: {
       name: "Alarma Original",
@@ -120,7 +122,8 @@ App() {
   };
 
   // Test play sound function
-  const testSound = () => {
+  const testSound = (soundKey) => {
+    setSelectedSound(soundKey);
     if (audioRef.current) {
       audioRef.current.volume = volume;
       audioRef.current.currentTime = 0;
@@ -220,10 +223,10 @@ App() {
   // Get icon based on current mode
   const getModeIcon = () => {
     switch(mode) {
-      case 'work': return '🌿';
-      case 'smoke': return '🔥';
-      case 'munchies': return '🍕';
-      default: return '🌿';
+      case 'work': return <span role="img" aria-label="work">🌿</span>;
+      case 'smoke': return <span role="img" aria-label="smoke">🔥</span>;
+      case 'munchies': return <span role="img" aria-label="munchies">🍕</span>;
+      default: return <span role="img" aria-label="work">🌿</span>;
     }
   };
 
@@ -309,11 +312,11 @@ App() {
       </div>
 
       {/* Settings button */}
-      <button
+<button
         onClick={toggleSettings}
         className="neo-brutal-button bg-black text-white mb-4 rotate-1"
       >
-        ⚙️ CONFIGURACIÓN
+        <span role="img" aria-label="settings">⚙️</span> CONFIGURACIÓN
       </button>
 
       {/* Settings panel - mobile optimized */}
@@ -386,8 +389,8 @@ App() {
                   />
                   <label htmlFor={soundKey} className="mr-2">{soundOptions[soundKey].name}</label>
                   <button
-                    onClick={testSound}
-                    className="ml-auto neo-brutal-button-small bg-purple-400 text-white"
+                     onClick={() => testSound(soundKey)}
+                     className="ml-auto neo-brutal-button-small bg-purple-400 text-white"
                   >
                     🔊
                   </button>
