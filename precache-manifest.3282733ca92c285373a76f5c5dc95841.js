@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afae4b42cdb80ab7d564a50d7b83f48f",
+    "revision": "adf26d742a012d430de58b1bdde3416b",
     "url": "/porrodoro/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/porrodoro/static/js/2.b068ced6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "31b01ee3b4b3c6249bf9",
-    "url": "/porrodoro/static/js/main.6dc44e39.chunk.js"
+    "revision": "83a2dfc1050dda7cf155",
+    "url": "/porrodoro/static/js/main.93bdba1f.chunk.js"
   },
   {
     "revision": "d1a06253b0c208838401",

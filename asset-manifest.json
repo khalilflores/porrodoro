@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/porrodoro/static/js/main.6dc44e39.chunk.js",
-    "main.js.map": "/porrodoro/static/js/main.6dc44e39.chunk.js.map",
+    "main.js": "/porrodoro/static/js/main.93bdba1f.chunk.js",
+    "main.js.map": "/porrodoro/static/js/main.93bdba1f.chunk.js.map",
     "runtime-main.js": "/porrodoro/static/js/runtime-main.977c8ec8.js",
     "runtime-main.js.map": "/porrodoro/static/js/runtime-main.977c8ec8.js.map",
     "static/js/2.b068ced6.chunk.js": "/porrodoro/static/js/2.b068ced6.chunk.js",
     "static/js/2.b068ced6.chunk.js.map": "/porrodoro/static/js/2.b068ced6.chunk.js.map",
     "index.html": "/porrodoro/index.html",
-    "precache-manifest.c37985ffd29c88235c3a13889e773a9c.js": "/porrodoro/precache-manifest.c37985ffd29c88235c3a13889e773a9c.js",
+    "precache-manifest.3282733ca92c285373a76f5c5dc95841.js": "/porrodoro/precache-manifest.3282733ca92c285373a76f5c5dc95841.js",
     "service-worker.js": "/porrodoro/service-worker.js",
     "static/js/2.b068ced6.chunk.js.LICENSE.txt": "/porrodoro/static/js/2.b068ced6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.977c8ec8.js",
     "static/js/2.b068ced6.chunk.js",
-    "static/js/main.6dc44e39.chunk.js"
+    "static/js/main.93bdba1f.chunk.js"
   ]
 }
