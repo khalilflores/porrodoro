@@ -5,10 +5,11 @@ function App() {
   const [seconds, setSeconds] = React.useState(0);
   const [isActive, setIsActive] = React.useState(false);
   const [mode, setMode] = React.useState('work'); // 'work', 'smoke', 'munchies'
-  const [cycles, setCycles] = React.useState(0);
+  const [cycles, setCycles] = React.useState(0); // Inicializado en 0, lo cambiaremos a mostrar como 1/4
   const [volume, setVolume] = React.useState(0.5);
   const [showSettings, setShowSettings] = React.useState(false);
   const [lottieLoaded, setLottieLoaded] = React.useState(false);
+  const [showInfoModal, setShowInfoModal] = React.useState(false); // Nuevo estado para el modal
 
   // Sound options for alarm
   const [selectedSound, setSelectedSound] = React.useState('cough1');
@@ -106,9 +107,14 @@ function App() {
         } else {
           setSeconds(seconds - 1);
         }
+        
+        // Update browser tab title with current timer
+        document.title = `${formatTime(minutes, seconds === 0 ? 0 : seconds - 1)} - Porrodoro`;
       }, 1000);
     } else {
       clearInterval(interval);
+      // Reset title when timer is not active
+      document.title = "Porrodoro";
     }
 
     return () => clearInterval(interval);
@@ -249,6 +255,14 @@ function App() {
         <h1 className="text-4xl md:text-5xl font-black neo-brutal-text">PORRODORO</h1>
       </div>
 
+      {/* Info button - Nuevo botón de información */}
+      <button
+        onClick={() => setShowInfoModal(true)}
+        className="neo-brutal-button-small bg-white text-black absolute top-4 right-4"
+      >
+        <span role="img" aria-label="info">ℹ️</span>
+      </button>
+
       {/* Lottie Animation Container - Increased size and removed padding */}
       <div className="neo-brutal-box bg-white w-48 h-48 md:w-64 md:h-64 p-0 mb-4 overflow-hidden flex items-center justify-center">
         <div ref={lottieContainerRef} className="w-full h-full"></div>
@@ -258,7 +272,7 @@ function App() {
       <div className={`neo-brutal-box ${getAccentColor()} text-white mb-4 rotate-1`}>
         <div className="text-xl md:text-2xl font-bold">
           <span className="text-3xl md:text-4xl mr-2">{getModeIcon()}</span>
-          {mode === 'work' && 'TIEMPO DE CULTIVO'}
+          {mode === 'work' && 'TIEMPO DE CREAR'}
           {mode === 'smoke' && 'TIEMPO DE PORRO'}
           {mode === 'munchies' && 'TIEMPO DE MONCHA'}
         </div>
@@ -271,10 +285,10 @@ function App() {
         </div>
       </div>
 
-      {/* Cycle counter */}
+      {/* Cycle counter - Modificado para mostrar ciclo actual como 1-4 en lugar de 0-3 */}
       <div className="neo-brutal-box bg-white mb-4 rotate-1">
         <div className="font-bold">
-          CICLO: {cycles % cyclesBeforeMunchies || cyclesBeforeMunchies}/{cyclesBeforeMunchies}
+          CICLO: {(cycles % cyclesBeforeMunchies) + 1}/{cyclesBeforeMunchies}
         </div>
       </div>
 
@@ -421,13 +435,55 @@ function App() {
         </div>
       )}
 
+      {/* Info Modal - Corregido para evitar scroll horizontal */}
+      {showInfoModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto overflow-x-hidden">
+          <div className="neo-brutal-box bg-white w-full max-w-md rotate-1 relative mx-auto my-8">
+            <button
+              onClick={() => setShowInfoModal(false)}
+              className="absolute top-2 right-2 text-2xl font-bold"
+            >
+              ✕
+            </button>
+            <h2 className="text-2xl mb-4 font-black text-center micro-font">EL MÉTODO PORRODORO</h2>
+            <div className="micro-font text-lg space-y-4 overflow-x-hidden">
+              <p>¡Qué ondita! El método Porrodoro es como el Pomodoro pero pa' la banda pacheca. 🌿</p>
+              <p>Así funciona este mambo:</p>
+              <ol className="list-decimal pl-5 space-y-2">
+                <li>Te pones a <strong>crear</strong> por 25 minutitos (o lo que tú quieras).</li>
+                <li>Luego te das un <strong>toque</strong> de 5 minutos pa' refrescar la mente agutito.</li>
+                <li>Repites este ciclo 4 veces.</li>
+                <li>Después de 4 ciclos, te das un descanso más largo pa' la <strong>deli moncha</strong> (15 min).</li>
+              </ol>
+              <p>Este método te ayuda a mantener el cerebro fresco y la creatividad fluyendo como humo. La onda es que trabajas cuando estás enfocado y descansas cuando lo necesitas. ¡Puro balance!🕉️</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Footer - Ajustado a 20px de alto con corazón pixelado y enlace que abre en nueva ventana */}
+      <footer className="w-full text-center py-1 micro-font fixed bottom-0 left-0 bg-inherit z-10" style={{ height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        Hecho con <a href="https://github.com/khalilflores/porrodoro" target="_blank" rel="noopener noreferrer" className="micro-font mx-1 text-red-500 hover:underline" style={{ fontSize: '1.2em' }}>&lt;3</a> ahautalam
+      </footer>
+
       {/* Add neobrutalism style */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
           * {
             font-family: 'Rubik', sans-serif;
+          }
+
+          body, html {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+          }
+
+          .micro-font {
+            font-family: 'Micro 5', sans-serif;
           }
 
           .neo-brutal-text {
@@ -503,18 +559,13 @@ function App() {
             width: 25px;
             height: 25px;
             background: black;
-            border: 3px solid black;
             cursor: pointer;
+            border: 2px solid white;
           }
 
-          @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-          }
-
-          .float-animation {
-            animation: float 3s ease-in-out infinite;
+          /* Ajuste para que el contenido principal no quede oculto por el footer */
+          .min-h-screen {
+            padding-bottom: 20px;
           }
         `}
       </style>
