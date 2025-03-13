@@ -26,8 +26,8 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   // Ajusta la URL para manejar las solicitudes relativas al subdirectorio
-  const adjustedUrl = event.request.url.includes('/porrodoro/') 
-    ? event.request.url 
+  const adjustedUrl = event.request.url.includes('/porrodoro/')
+    ? event.request.url
     : event.request.url.replace(self.location.origin, self.location.origin + '/porrodoro');
 
   event.respondWith(
