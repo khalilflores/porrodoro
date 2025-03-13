@@ -1,4 +1,4 @@
-// filepath: c:\Users\Usuario\Desktop\app\porrodoro\public\service-worker.js
+// filepath: c:\Users\Usuario\Desktop\app\pomo2\porrodoro\public\service-worker.js
 const CACHE_NAME = 'porrodoro-cache-v1';
 const urlsToCache = [
   '/porrodoro/',
