@@ -1,39 +1,84 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+// filepath: c:\Users\Usuario\Desktop\app\porrodoro\public\service-worker.js
+const CACHE_NAME = 'porrodoro-cache-v1';
+const urlsToCache = [
+  '/porrodoro/',
+  '/porrodoro/index.html',
+  '/porrodoro/assets/favicon.ico',
+  '/porrodoro/assets/logo192.png',
+  '/porrodoro/assets/manifest.json',
+  '/porrodoro/assets/cough1.mp3',
+  '/porrodoro/assets/cough2.mp3',
+  '/porrodoro/assets/cough3.mp3'
+];
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
-importScripts(
-  "/porrodoro/precache-manifest.c8d987e681d9d7cf87a61d0673db6f49.js"
-);
-
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+      .catch(error => {
+        console.error('Error during cache installation:', error);
+      })
+  );
 });
 
-workbox.core.clientsClaim();
+self.addEventListener('fetch', event => {
+  // Ajusta la URL para manejar las solicitudes relativas al subdirectorio
+  const adjustedUrl = event.request.url.includes('/porrodoro/') 
+    ? event.request.url 
+    : event.request.url.replace(self.location.origin, self.location.origin + '/porrodoro');
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+  event.respondWith(
+    caches.match(adjustedUrl)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request).then(response => {
+          // Verifica si recibimos una respuesta válida
+          if (!response || response.status !== 200 || response.type !== 'basic') {
+            return response;
+          }
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/porrodoro/index.html"), {
-  
-  blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
+          // Clona la respuesta
+          const responseToCache = response.clone();
+
+          caches.open(CACHE_NAME)
+            .then(cache => {
+              cache.put(event.request, responseToCache);
+            });
+
+          return response;
+        });
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+        // Aquí podrías retornar una respuesta fallback
+      })
+  );
+});
+
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
+
+// Manejo de mensajes
+self.addEventListener('message', event => {
+  if (event.data === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });

@@ -1,39 +1,26 @@
 {
   "short_name": "Porrodoro",
-  "name": "Porrodoro - Cannabis Pomodoro Timer",
+  "name": "Porrodoro Timer",
   "icons": [
     {
-      "src": "/assets/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/assets/logo192.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any maskable"
+      "sizes": "192x192"
     },
     {
-      "src": "/assets/logo512.png",
+      "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     }
   ],
-  "start_url": "/porrodoro/",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "orientation": "portrait",
-  "scope": "/porrodoro/",
-  "description": "Un temporizador Pomodoro con temática cannabis",
-  "prefer_related_applications": false,
-  "categories": ["productivity", "lifestyle"],
-  "screenshots": [
-    {
-      "src": "/assets/screenshot1.png",
-      "type": "image/png",
-      "sizes": "540x720"
-    }
-  ]
+  "theme_color": "#4ade80",
+  "background_color": "#4ade80",
+  "orientation": "portrait"
 }
