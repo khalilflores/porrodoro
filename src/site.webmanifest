@@ -2,8 +2,8 @@
     "name": "Porrodoro - Temporizador Pomodoro",
     "short_name": "Porrodoro",
     "description": "Temporizador Pomodoro con temática Ganja Reggae Pixel Weed",
-    "start_url": "/",
-    "scope": "/",
+    "start_url": "/porrodoro/",
+    "scope": "/porrodoro/",
     "icons": [
         {
             "src": "/assets/images/android-chrome-192x192.png",

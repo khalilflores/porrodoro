@@ -5,21 +5,24 @@
 
 const CACHE_NAME = 'porrodoro-v1';
 
+// Prefijo base para GitHub Pages
+const BASE_PATH = '/porrodoro';
+
 // Archivos a cachear al instalar
 const PRECACHE_URLS = [
-    '/',
-    '/index.html',
-    '/site.webmanifest',
-    '/assets/images/favicon-16x16.png',
-    '/assets/images/favicon-32x32.png',
-    '/assets/images/favicon.ico',
-    '/assets/images/favicon.png',
-    '/assets/images/apple-touch-icon.png',
-    '/assets/images/android-chrome-192x192.png',
-    '/assets/images/android-chrome-512x512.png',
-    '/css/style.css',
-    '/css/themes/ganja-reggae.css',
-    '/js/app.js'
+    BASE_PATH + '/',
+    BASE_PATH + '/index.html',
+    BASE_PATH + '/site.webmanifest',
+    BASE_PATH + '/assets/images/favicon-16x16.png',
+    BASE_PATH + '/assets/images/favicon-32x32.png',
+    BASE_PATH + '/assets/images/favicon.ico',
+    BASE_PATH + '/assets/images/favicon.png',
+    BASE_PATH + '/assets/images/apple-touch-icon.png',
+    BASE_PATH + '/assets/images/android-chrome-192x192.png',
+    BASE_PATH + '/assets/images/android-chrome-512x512.png',
+    BASE_PATH + '/css/style.css',
+    BASE_PATH + '/css/themes/ganja-reggae.css',
+    BASE_PATH + '/js/app.js'
 ];
 
 // Instalación: cachear archivos esenciales
@@ -90,7 +93,7 @@ self.addEventListener('fetch', (event) => {
                     }
                     // Si no está en cache y es una navegación, servir index.html
                     if (event.request.mode === 'navigate') {
-                        return caches.match('/index.html');
+                        return caches.match(BASE_PATH + '/index.html');
                     }
                     return new Response('Offline', { status: 503 });
                 });
