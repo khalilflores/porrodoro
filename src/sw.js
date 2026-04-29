@@ -20,6 +20,7 @@ const PRECACHE_URLS = [
     BASE_PATH + '/assets/images/apple-touch-icon.png',
     BASE_PATH + '/assets/images/android-chrome-192x192.png',
     BASE_PATH + '/assets/images/android-chrome-512x512.png',
+    BASE_PATH + '/assets/images/og-image.svg',
     BASE_PATH + '/css/style.css',
     BASE_PATH + '/css/themes/ganja-reggae.css',
     BASE_PATH + '/js/app.js'

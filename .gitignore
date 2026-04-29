@@ -54,3 +54,7 @@ temp/
 # Assets (optional - uncomment if you don't want to commit assets)
 # src/assets/sounds/
 # src/assets/images/
+
+# Generators
+create-og-image.js
+create-icons.js
