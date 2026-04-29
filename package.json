@@ -1,0 +1,54 @@
+{
+  "name": "porrodoro",
+  "version": "1.0.0",
+  "description": "A minimalist Pomodoro timer with Ganja Reggae Pixel Weed theme",
+  "main": "main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "productivity",
+    "electron"
+  ],
+  "author": "Porrodoro Team",
+  "license": "MIT",
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0"
+  },
+  "build": {
+    "appId": "com.porrodoro.app",
+    "productName": "Porrodoro",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "src/assets/images/icon.ico"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "icon": "src/assets/images/icon.icns"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "src/assets/images/icon.png"
+    }
+  }
+}

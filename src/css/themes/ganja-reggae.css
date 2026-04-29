@@ -1,0 +1,313 @@
+/* Porrodoro - Tema Ganja Reggae Pixel Weed */
+/* Inspirado en los colores del Reggae, el simbolismo Rastafari y la estética pixel art */
+
+:root.theme-ganja-reggae {
+    /* Colores Primarios - Verde Rastafari */
+    --primary-color: #137333;
+    --primary-dark: #0e5222;
+    --primary-light: #1a9e44;
+    
+    /* Colores Secundarios - Dorado (Sol Jamaiquino) */
+    --secondary-color: #d4af37;
+    --secondary-dark: #aa8c2c;
+    --secondary-light: #eac55d;
+    
+    /* Colores de Acento - Rojo (Sangre de los Ancestros) */
+    --accent-color: #c41e3a;
+    --accent-dark: #9e1830;
+    --accent-light: #e04d6b;
+    
+    /* Colores de Fondo - Crema/Beige Pixel */
+    --bg-color: #f5f5dc;
+    --bg-dark: #e6e6c8;
+    --bg-darker: #d4d4b8;
+    
+    /* Colores de Texto */
+    --text-color: #2d2d2d;
+    --text-light: #4a4a4a;
+    --text-dark: #1a1a1a;
+    
+    /* Colores de Borde */
+    --border-color: #8b8b6b;
+    --border-dark: #6b6b4b;
+    
+    /* Colores de Modo del Temporizador */
+    --timer-work: #137333;
+    --timer-short-break: #007bff;
+    --timer-long-break: #6f42c1;
+    
+    /* Colores Reggae Adicionales */
+    --lions-color: #ce1126;
+    --gold-color: #d4af37;
+    --green-color: #137333;
+    --purple-color: #6f42c1;
+}
+
+/* Aplicación del Tema */
+.theme-ganja-reggae {
+    /* Fondo con patrón sutil de píxeles */
+    background-image: 
+        linear-gradient(45deg, var(--bg-color) 25%, transparent 25%, transparent 75%, var(--bg-color) 75%, var(--bg-color)),
+        linear-gradient(45deg, var(--bg-color) 25%, transparent 25%, transparent 75%, var(--bg-color) 75%, var(--bg-color));
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+/* Estilos del Encabezado */
+.app-header.theme-ganja-reggae {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-bottom: 4px solid var(--secondary-color);
+    box-shadow: 0 4px 0 var(--border-dark);
+}
+
+.app-title.theme-ganja-reggae {
+    text-shadow: 
+        2px 2px 0 var(--secondary-color),
+        4px 4px 0 var(--border-dark);
+}
+
+/* Pantalla del Temporizador */
+.timer-display.theme-ganja-reggae {
+    color: var(--text-dark);
+    text-shadow: 
+        2px 2px 0 var(--border-color),
+        4px 4px 0 var(--border-dark);
+}
+
+/* Barra de Progreso */
+.progress-bar.theme-ganja-reggae {
+    background-color: var(--border-color);
+    border: 2px solid var(--border-dark);
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.progress-fill.theme-ganja-reggae {
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    box-shadow: 2px 2px 0 var(--primary-dark);
+}
+
+/* Botones */
+.btn-primary.theme-ganja-reggae {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: 2px solid var(--primary-dark);
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+}
+
+.btn-primary.theme-ganja-reggae:hover {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+    transform: translate(-2px, -2px);
+}
+
+.btn-secondary.theme-ganja-reggae {
+    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+    border: 2px solid var(--secondary-dark);
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+}
+
+.btn-secondary.theme-ganja-reggae:hover {
+    background: linear-gradient(135deg, var(--secondary-light), var(--secondary-color));
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+    transform: translate(-2px, -2px);
+}
+
+.btn-danger.theme-ganja-reggae {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+    border: 2px solid var(--accent-dark);
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+}
+
+.btn-danger.theme-ganja-reggae:hover {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-color));
+    box-shadow: 
+        2px 2px 0 var(--border-dark),
+        4px 4px 0 var(--border-color);
+    transform: translate(-2px, -2px);
+}
+
+/* Modal */
+.modal-content.theme-ganja-reggae {
+    border: 4px solid var(--primary-color);
+    box-shadow: 
+        4px 4px 0 var(--border-dark),
+        8px 8px 0 var(--border-color);
+}
+
+.modal-header.theme-ganja-reggae {
+    border-bottom: 4px solid var(--primary-color);
+    background-color: var(--bg-dark);
+}
+
+.modal-header h2.theme-ganja-reggae {
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0 var(--secondary-color);
+}
+
+/* Grupo de Configuración */
+.settings-group.theme-ganja-reggae h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    background-color: var(--bg-darker);
+    padding-left: var(--spacing-sm);
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Campos de Entrada */
+.setting-item input,
+.setting-item select {
+    border: 2px solid var(--border-color);
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 
+        0 0 0 2px var(--primary-color),
+        inset 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilo de Casillas de Verificación */
+.setting-item.checkbox input[type="checkbox"] {
+    accent-color: var(--primary-color);
+}
+
+/* Contador de Sesiones */
+.session-count.theme-ganja-reggae {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-shadow: 1px 1px 0 var(--secondary-color);
+}
+
+/* Indicador de Modo */
+.mode-label.theme-ganja-reggae {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 var(--secondary-color);
+}
+
+/* Acciones Rápidas */
+.action-btn.theme-ganja-reggae:hover .action-label {
+    color: var(--primary-color);
+}
+
+/* Colores de la Barra de Progreso por Modo */
+.progress-fill.work-mode {
+    background: linear-gradient(90deg, var(--timer-work), var(--primary-light));
+}
+
+.progress-fill.short-break-mode {
+    background: linear-gradient(90deg, var(--timer-short-break), #4da6ff);
+}
+
+.progress-fill.long-break-mode {
+    background: linear-gradient(90deg, var(--timer-long-break), #9b79e0);
+}
+
+/* Efectos Pixel Art */
+.pixel-border {
+    border: 4px solid var(--primary-color);
+    box-shadow: 
+        4px 4px 0 var(--border-dark),
+        8px 8px 0 var(--border-color);
+}
+
+.pixel-shadow {
+    box-shadow: 
+        2px 2px 0 var(--border-color),
+        4px 4px 0 var(--border-dark);
+}
+
+/* Animaciones */
+@keyframes ganja-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes reggae-flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.pulse-anim {
+    animation: ganja-pulse 2s ease infinite;
+}
+
+.flash-anim {
+    animation: reggae-flash 1s ease infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track.theme-ganja-reggae {
+    background-color: var(--bg-color);
+    border-left: 2px solid var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb.theme-ganja-reggae {
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb:hover.theme-ganja-reggae {
+    background-color: var(--primary-dark);
+}
+
+/* Superposición de Patrón Rastafari */
+.rastafarian-pattern {
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(19, 115, 51, 0.05) 10px,
+            rgba(19, 115, 51, 0.05) 20px
+        );
+}
+
+/* Fondo de Cuadrícula Pixel */
+.pixel-grid {
+    background-image: 
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Franjas de Colores Rasta */
+.rasta-stripes {
+    background: linear-gradient(
+        to right,
+        var(--lions-color) 33.33%,
+        var(--gold-color) 33.33%,
+        var(--gold-color) 66.66%,
+        var(--green-color) 66.66%
+    );
+}
+
+/* Transiciones del Tema */
+.theme-transition {
+    transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}

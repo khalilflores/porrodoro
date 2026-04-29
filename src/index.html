@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porrodoro - Temporizador Pomodoro Ganja Reggae Pixel Weed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Coral+Pixels&family=Workbench&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes/ganja-reggae.css">
+</head>
+<body class="theme-ganja-reggae">
+    <!-- Barra de título personalizada (ventana sin marco) -->
+    <div class="title-bar" id="title-bar">
+        <div class="title-bar-drag">
+            <span class="title-bar-icon">🍅</span>
+            <span class="title-bar-text">Porrodoro</span>
+        </div>
+        <div class="title-bar-controls">
+            <button class="title-btn title-btn-minimize" id="minimize-btn" aria-label="Minimizar">─</button>
+            <button class="title-btn title-btn-close" id="close-btn" aria-label="Cerrar">✕</button>
+        </div>
+    </div>
+
+    <div id="app" class="app-container">
+        <!-- Encabezado -->
+        <header class="app-header">
+            <h1 class="app-title">Porrodoro</h1>
+            <div class="theme-toggle">
+                <button class="btn-pixel btn-theme-pixel" id="theme-btn" aria-label="Cambiar tema"></button>
+            </div>
+        </header>
+
+        <!-- Temporizador Principal -->
+        <main class="timer-section">
+            <div class="mode-indicator" id="mode-indicator">
+                <span class="mode-label">Pomodoro</span>
+            </div>
+            
+            <div class="timer-display bitcount-single-timer" id="timer-display">
+                <span class="time-hours" id="hours">00</span>:
+                <span class="time-minutes" id="minutes">25</span>:
+                <span class="time-seconds" id="seconds">00</span>
+            </div>
+
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="session-counter">
+                <span class="session-label">Sesión:</span>
+                <span class="session-count" id="session-count">1</span>
+            </div>
+        </main>
+
+        <!-- Controles Pixel Art -->
+        <section class="pixel-controls">
+            <!-- Iniciar/Pausa -->
+            <div class="pixel-btn-wrapper">
+                <button class="btn-pixel btn-play-pixel" id="start-btn" aria-label="Iniciar temporizador"></button>
+                <button class="btn-pixel btn-pause-pixel" id="pause-btn" aria-label="Pausar temporizador" style="display:none"></button>
+                <span class="pixel-btn-label" id="play-pause-label">Iniciar</span>
+            </div>
+            <!-- Reiniciar -->
+            <div class="pixel-btn-wrapper">
+                <button class="btn-pixel btn-reset-pixel" id="reset-btn" aria-label="Reiniciar temporizador"></button>
+                <span class="pixel-btn-label">Reiniciar</span>
+            </div>
+            <!-- Saltar -->
+            <div class="pixel-btn-wrapper">
+                <button class="btn-pixel btn-skip-pixel" id="skip-btn" aria-label="Saltar al siguiente"></button>
+                <span class="pixel-btn-label">Saltar</span>
+            </div>
+            <!-- Configuración -->
+            <div class="pixel-btn-wrapper">
+                <button class="btn-pixel btn-settings-pixel" id="settings-btn" aria-label="Abrir configuración"></button>
+                <span class="pixel-btn-label">Ajustes</span>
+            </div>
+        </section>
+
+        <!-- Sección de Tareas -->
+        <section class="tasks-section">
+            <div class="tasks-header">
+                <h2 class="tasks-title">📋 Tareas</h2>
+                <span class="tasks-count" id="tasks-count">0</span>
+            </div>
+            <div class="tasks-list" id="tasks-list">
+                <!-- Las tareas se renderizarán aquí -->
+            </div>
+            <div class="tasks-input-group">
+                <input type="text" class="tasks-input" id="task-input" placeholder="Añadir nueva tarea..." maxlength="200">
+                <button class="btn btn-add-task" id="add-task-btn">+</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de Configuración -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Configuración</h2>
+                <button class="close-btn" id="close-settings">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Configuración del Temporizador -->
+                <section class="settings-group">
+                    <h3>Temporizador</h3>
+                    
+                    <div class="setting-item">
+                        <label for="pomodoro-time">Pomodoro (minutos)</label>
+                        <input type="number" id="pomodoro-time" value="25" min="1" max="120">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="short-break-time">Descanso Corto (minutos)</label>
+                        <input type="number" id="short-break-time" value="3" min="1" max="60">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="long-break-time">Descanso Largo (minutos)</label>
+                        <input type="number" id="long-break-time" value="15" min="1" max="120">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="long-break-interval">Intervalo Descanso Largo</label>
+                        <input type="number" id="long-break-interval" value="4" min="2" max="12">
+                    </div>
+                </section>
+
+                <!-- Inicio Automático -->
+                <section class="settings-group">
+                    <h3>Inicio Automático</h3>
+                    
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="auto-start-breaks" checked>
+                            Iniciar Descansos Automáticamente
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="auto-start-pomodoros" checked>
+                            Iniciar Pomodoros Automáticamente
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Configuración de Sonido -->
+                <section class="settings-group">
+                    <h3>Sonido</h3>
+                    
+                    <div class="setting-item">
+                        <label for="alarm-sound">Sonido de Alarma</label>
+                        <select id="alarm-sound">
+                            <option value="alarm_classic">Alarma Clásica</option>
+                            <option value="alarm_rooster">Gallo</option>
+                            <option value="alarm_digital_watch">Reloj Digital</option>
+                            <option value="alarm_ganjah_bell">Campana Ganjah</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <button id="play-alarm-sound">Reproducir Alarma</button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="alarm-volume">Volumen de Alarma</label>
+                        <input type="range" id="alarm-volume" min="0" max="100" value="50">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="focus-sound">Sonido de Enfoque</label>
+                        <select id="focus-sound">
+                            <option value="none">Ninguno</option>
+                            <option value="focus_raining">Lluvia</option>
+                            <option value="focus_forest_sounds">Sonidos del Bosque</option>
+                            <option value="focus_white_noise">Ruido Blanco</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <button id="play-focus-sound">Reproducir Enfoque</button>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="focus-volume">Volumen de Enfoque</label>
+                        <input type="range" id="focus-volume" min="0" max="100" value="50">
+                    </div>
+                </section>
+
+                <!-- Configuración de Notificaciones -->
+                <section class="settings-group">
+                    <h3>Notificaciones</h3>
+                    
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="enable-notifications" checked>
+                            Activar Notificaciones
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="notification-reminder">Recordatorio (minutos antes)</label>
+                        <input type="number" id="notification-reminder" value="0" min="0" max="60">
+                    </div>
+                </section>
+
+                <!-- Integración Móvil -->
+                <section class="settings-group">
+                    <h3>Integración Móvil</h3>
+                    
+                    <div class="setting-item">
+                        <label>Alarma Móvil</label>
+                        <button class="btn btn-secondary" id="add-device-btn">
+                            + Agregar dispositivo
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Integraciones -->
+                <section class="settings-group">
+                    <h3>Integraciones</h3>
+                    
+                    <div class="setting-item">
+                        <label for="todoist-token">Token API de Todoist</label>
+                        <input type="password" id="todoist-token" placeholder="Ingresa tu token de Todoist">
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="webhook-url">URL de Webhook</label>
+                        <input type="url" id="webhook-url" placeholder="https://ejemplo.com/webhook">
+                    </div>
+                    
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="auto-check-tasks" checked>
+                            Auto-verificar Tareas
+                        </label>
+                    </div>
+                    
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="check-to-bottom">
+                            Verificar al Final
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Configuración de Pantalla -->
+                <section class="settings-group">
+                    <h3>Pantalla</h3>
+                    
+                    <div class="setting-item">
+                        <label for="hour-format">Formato de Hora</label>
+                        <select id="hour-format">
+                            <option value="24">24 horas</option>
+                            <option value="12">12 horas (AM/PM)</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="dark-mode-running" checked>
+                            Modo Oscuro al Ejecutar
+                        </label>
+                    </div>
+
+                    <div class="setting-item checkbox">
+                        <label>
+                            <input type="checkbox" id="small-window" checked>
+                            Ventana Pequeña
+                        </label>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="save-settings">Guardar Ajustes</button>
+                <button class="btn btn-secondary" id="reset-to-defaults">Restablecer Valores</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elementos de audio (placeholder) -->
+    <audio id="alarm-sound-asset" loop></audio>
+    <audio id="focus-sound-asset" loop></audio>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discord / Comunidad
+    url: https://github.com/tu-usuario/porrodoro/discussions
+    about: Preguntas y discusiones generales sobre el proyecto
+  - name: 📖 Documentación
+    url: https://github.com/tu-usuario/porrodoro/blob/main/README.md
+    about: Revisa la documentación antes de crear un issue
