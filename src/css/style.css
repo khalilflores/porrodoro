@@ -83,6 +83,48 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Eliminar outline azul en focus para dispositivos táctiles */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Prevenir selección de texto y resaltado azul en botones en móviles */
+button,
+button:active,
+button:focus,
+.btn,
+.btn:active,
+.btn:focus,
+.btn-pixel,
+.btn-pixel:active,
+.btn-pixel:focus,
+input,
+input:active,
+input:focus,
+select,
+select:active,
+select:focus {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+    outline: none !important;
+}
+
+/* Firefox: eliminar el dotted outline interno */
+button::-moz-focus-inner,
+.btn::-moz-focus-inner,
+.btn-pixel::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0 !important;
+    outline: none !important;
 }
 
 body {
