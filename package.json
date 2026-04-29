@@ -17,7 +17,15 @@
     "productivity",
     "electron"
   ],
-  "author": "Porrodoro Team",
+  "author": "khalilflores",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalilflores/porrodoro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khalilflores/porrodoro/issues"
+  },
+  "homepage": "https://github.com/khalilflores/porrodoro#readme",
   "license": "MIT",
   "dependencies": {
     "electron-updater": "^6.1.7"

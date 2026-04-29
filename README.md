@@ -7,8 +7,8 @@
 [![Licencia](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D16-brightgreen)](https://nodejs.org)
 [![PRs Bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-brightgreen)](CONTRIBUTING.md)
-[![GitHub stars](https://img.shields.io/github/stars/tu-usuario/porrodoro?style=social)](https://github.com/tu-usuario/porrodoro)
-[![GitHub forks](https://img.shields.io/github/forks/tu-usuario/porrodoro?style=social)](https://github.com/tu-usuario/porrodoro)
+[![GitHub stars](https://img.shields.io/github/stars/khalilflores/porrodoro?style=social)](https://github.com/khalilflores/porrodoro)
+[![GitHub forks](https://img.shields.io/github/forks/khalilflores/porrodoro?style=social)](https://github.com/khalilflores/porrodoro)
 
 </div>
 
@@ -95,7 +95,10 @@ Una aplicación de escritorio de temporizador Pomodoro minimalista y optimizada 
 ### Pasos
 
 ```bash
-# 1. Clonar o navegar al directorio del proyecto
+# 1. Clonar el repositorio
+git clone https://github.com/khalilflores/porrodoro.git
+
+# 2. Navegar al directorio del proyecto
 cd porrodoro
 
 # 2. Instalar dependencias
