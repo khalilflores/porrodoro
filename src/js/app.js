@@ -570,8 +570,48 @@ function playButtonSound(soundFile) {
 // Inicializar Temporizador
 const timer = new Timer();
 
+// ============================================
+// Precarga de imágenes de botones pixel art
+// ============================================
+
+/**
+ * Lista de todas las imágenes de botones pixel art que deben precargarse
+ * para evitar que los botones desaparezcan al hacer hover o clic por primera vez.
+ */
+const BUTTON_IMAGES = [
+    'btn_play_idle.png',
+    'btn_play_hover.png',
+    'btn_play_pressed.png',
+    'btn_reset_idle.png',
+    'btn_reset_hover.png',
+    'btn_reset_pressed.png',
+    'btn_skip_idle.png',
+    'btn_skip_hover.png',
+    'btn_skip_pressed.png',
+    'btn_settings_idle.png',
+    'btn_settings_hover.png',
+    'btn_settings_presed.png',
+    'btn_theme_idle.png',
+    'btn_theme_hover.png',
+    'btn_theme_pressed.png'
+];
+
+/**
+ * Precarga todas las imágenes de botones para que estén en caché
+ * antes de que el usuario interactúe con ellos.
+ */
+function preloadButtonImages() {
+    BUTTON_IMAGES.forEach(filename => {
+        const img = new Image();
+        img.src = `assets/images/${filename}`;
+    });
+}
+
 // Inicializar Aplicación
 function init() {
+    // Precargar imágenes de botones pixel art para evitar parpadeos
+    preloadButtonImages();
+    
     // Detectar si se ejecuta en navegador web (no Electron) y agregar clase de plataforma
     if (!window.require || !window.require('electron')) {
         document.body.classList.add('platform-web');
