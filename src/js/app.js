@@ -1046,6 +1046,19 @@ if (document.readyState === 'loading') {
     setupTasksListeners();
 }
 
+// Registrar Service Worker para PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('[PWA] Service Worker registrado con éxito:', registration.scope);
+            })
+            .catch((error) => {
+                console.log('[PWA] Service Worker no disponible en este entorno:', error);
+            });
+    });
+}
+
 // Exportar para pruebas
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { init, timer };
