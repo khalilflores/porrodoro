@@ -1,5 +1,3 @@
-# 🍅 Porrodoro - Temporizador Pomodoro Ganja Reggae Pixel Weed
-
 <div align="center">
 
 # 🍅 Porrodoro
@@ -11,6 +9,10 @@
 [![PRs Bienvenidas](https://img.shields.io/badge/PRs-bienvenidas-brightgreen)](CONTRIBUTING.md)
 [![GitHub stars](https://img.shields.io/github/stars/tu-usuario/porrodoro?style=social)](https://github.com/tu-usuario/porrodoro)
 [![GitHub forks](https://img.shields.io/github/forks/tu-usuario/porrodoro?style=social)](https://github.com/tu-usuario/porrodoro)
+
+</div>
+
+# 🍅 Porrodoro - Temporizador Pomodoro Ganja Reggae Pixel Weed
 
 
 Una aplicación de escritorio de temporizador Pomodoro minimalista y optimizada con temática **Ganja Reggae Pixel Weed**, que cuenta con temporización en segundo plano persistente, modo oscuro, notificaciones e integraciones.
